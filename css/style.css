@@ -58,9 +58,9 @@ body {
 
 /* --- Layout & Typography --- */
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 5rem 5%;
+  padding: 5rem 2.5%;
 }
 
 @media (max-width: 768px) {
@@ -114,7 +114,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1rem 2.5%;
   background: var(--bg-white);
   border-bottom: 2px solid var(--secondary-color);
   position: fixed;
@@ -220,16 +220,29 @@ a { text-decoration: none; color: inherit; }
 
 .leaders-grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 2rem; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 2.5rem; 
 }
 
 .leader-item { 
   text-align: center;
+  border-top: 5px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
 }
 
-.leader-item strong { font-size: 1.3rem; color: var(--secondary-color); display: block; margin-bottom: 0.5rem; }
-.leader-item span { color: var(--primary-color); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+.leader-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.leader-item strong { font-size: 1.2rem; color: var(--secondary-color); display: block; margin-bottom: 0.5rem; }
+.leader-item span.role { color: var(--primary-color); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; display: block; }
+.leader-item span.country { color: var(--text-color); font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 0.5rem; font-weight: 500; }
+.flag-icon { width: 22px; height: auto; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
 
 /* --- Featured Story --- */
 .story-flex { display: flex; align-items: center; gap: 5rem; }
