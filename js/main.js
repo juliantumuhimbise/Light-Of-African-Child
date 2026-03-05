@@ -225,6 +225,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // --- 6. Newsletter Submission Handler ---
+  const newsletterForm = document.querySelector(".newsletter-form");
+  const newsletterMessage = document.getElementById("newsletter-message");
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      // If not hosted on Netlify, we handle the UI feedback here
+      // Netlify would normally handle the POST request itself
+      const email = newsletterForm.querySelector('input[type="email"]').value;
+      
+      if (email) {
+        // Prevent default only if we want to handle the UI manually (e.g. for a mock)
+        // e.preventDefault(); 
+        
+        // For a better UX in this demo, let's show a message
+        if (newsletterMessage) {
+          newsletterMessage.innerText = "Thank you for subscribing! We'll keep you updated.";
+          newsletterMessage.classList.remove("hidden");
+          newsletterMessage.style.color = "#10b981";
+          newsletterMessage.style.fontWeight = "bold";
+          newsletterMessage.style.marginTop = "1rem";
+          
+          newsletterForm.reset();
+        }
+      }
+    });
+  }
+
   function closeLightbox() {
     if (lightbox) {
       lightbox.classList.remove("active");
