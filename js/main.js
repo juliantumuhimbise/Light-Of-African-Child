@@ -225,33 +225,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- 6. Newsletter Submission Handler ---
+  // --- 6. Form Submission Handlers (Netlify AJAX) ---
+  const handleFormSubmission = (form, messageElement, successMsg) => {
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(() => {
+          if (messageElement) {
+            messageElement.innerText = successMsg;
+            messageElement.classList.remove("hidden");
+            messageElement.style.color = "#10b981";
+            messageElement.style.fontWeight = "bold";
+            messageElement.style.marginTop = "1rem";
+            
+            form.reset();
+            
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => {
+              messageElement.classList.add("hidden");
+            }, 5000);
+          }
+        })
+        .catch((error) => {
+          console.error("Form submission error:", error);
+          if (messageElement) {
+            messageElement.innerText = "Sorry, there was an error. Please try again later.";
+            messageElement.classList.remove("hidden");
+            messageElement.style.color = "#ef4444";
+          }
+        });
+    });
+  };
+
   const newsletterForm = document.querySelector(".newsletter-form");
   const newsletterMessage = document.getElementById("newsletter-message");
+  handleFormSubmission(newsletterForm, newsletterMessage, "Thank you for subscribing! We'll keep you updated.");
 
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", (e) => {
-      // If not hosted on Netlify, we handle the UI feedback here
-      // Netlify would normally handle the POST request itself
-      const email = newsletterForm.querySelector('input[type="email"]').value;
-      
-      if (email) {
-        // Prevent default only if we want to handle the UI manually (e.g. for a mock)
-        // e.preventDefault(); 
-        
-        // For a better UX in this demo, let's show a message
-        if (newsletterMessage) {
-          newsletterMessage.innerText = "Thank you for subscribing! We'll keep you updated.";
-          newsletterMessage.classList.remove("hidden");
-          newsletterMessage.style.color = "#10b981";
-          newsletterMessage.style.fontWeight = "bold";
-          newsletterMessage.style.marginTop = "1rem";
-          
-          newsletterForm.reset();
-        }
-      }
-    });
-  }
+  const contactForm = document.querySelector(".contact-form");
+  const contactMessage = document.getElementById("contact-message");
+  handleFormSubmission(contactForm, contactMessage, "Your message has been sent. Thank you for reaching out!");
 
   function closeLightbox() {
     if (lightbox) {
