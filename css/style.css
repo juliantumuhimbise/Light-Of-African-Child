@@ -198,6 +198,39 @@ a { text-decoration: none; color: inherit; }
 .impact-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem; }
 .impact-item p { font-weight: 600; font-size: 1rem; color: var(--secondary-color); margin-bottom: 0; }
 
+/* --- What We Do --- */
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.wwd-icon-container {
+  font-size: 3rem;
+  background: var(--bg-azure);
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.wwd-grid .info-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.wwd-grid .info-card p {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin-bottom: 0;
+}
+
 /* --- Testimonials --- */
 .testimonial {
   max-width: 800px;

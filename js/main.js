@@ -104,11 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 5. Program Detail Modal Content ---
   const programsData = {
     "education": {
-      title: "Community Education",
+      title: "Education Programs",
       tagline: "Quality education as a catalyst for change",
-      mission: "To provide essential educational support to orphans and underprivileged children, ensuring they have the tools and resources needed for a bright future.",
+      mission: "To help children stay in school and build a better future through education by providing materials, scholarships, and learning opportunities.",
       impact: ["100 Students Supported", "92% Graduation Rate", "15+ Primary Schools Partnered", "98% Attendance Rate"],
-      details: "Our education program covers more than just fees. We provide full uniforms, textbooks, writing materials, and after-school tutoring."
+      details: "We support underprivileged children by providing educational materials, scholarships, and community learning opportunities."
     },
     "shelter": {
       title: "Safe Shelter Project",
@@ -141,9 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "talent": {
       title: "Community Talent Development",
       tagline: "Nurturing spirits through dance, music, and sports",
-      mission: "To preserve Ugandan cultural heritage and provide a creative outlet for children to express joy and build confidence.",
+      mission: "To help nurture talents by creating platforms where children can express their creativity and develop their skills.",
       impact: ["350 Talents Nurtured", "24 Annual Performances", "Traditional dance training", "Regional sports success"],
-      details: "Children learn traditional drums, dances, and competitive sports. These activities are vital for emotional healing and social integration."
+      details: "Many children have talents that often go unnoticed due to a lack of opportunities. We create platforms for creative expression."
     },
     "environment": {
       title: "Environmental Conservation",
@@ -158,6 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
       mission: "To advocate for equality and protect the rights of children regardless of background or physical ability.",
       impact: ["85 Trained Advocates", "10+ Community Dialogues", "Legal support provided", "100% Inclusive policy"],
       details: "We fight against the stigma surrounding disability and HIV/AIDS through community workshops and dialogue with local leaders."
+    },
+    "clothing": {
+      title: "Clothing Donations",
+      tagline: "Basic needs support for vulnerable families",
+      mission: "To provide clothing and other necessities to families and children in need with support from well-wishers and community members.",
+      impact: ["500+ Items Distributed", "100+ Families Supported", "Community Collection Drives", "Essential Care Packages"],
+      details: "We collect and distribute quality clothing, shoes, and bedding to children who lack these basic necessities, ensuring they can attend school with dignity and stay healthy."
     }
   };
 
