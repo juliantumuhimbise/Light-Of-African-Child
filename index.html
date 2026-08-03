@@ -53,7 +53,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@400;600;700;800&family=Outfit:wght@500;700;800&display=swap&font-display=swap"
       rel="stylesheet"
     />
 
@@ -84,7 +84,7 @@
         <div class="logo">
           <a href="#hero" aria-label="Light of African Child Uganda Home">
             <img
-              src="images/logo.PNG"
+              src="images/logo.webp"
               alt="Light of African Child Uganda Logo"
             />
           </a>
@@ -98,8 +98,16 @@
           <a href="#donate" class="btn btn-primary">Support!</a>
         </nav>
 
-        <button
-          class="mobile-menu-btn"
+        <div class="nav-right-actions">
+          <label class="theme-switch" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+            <input type="checkbox" id="theme-switch-checkbox" aria-label="Toggle dark mode">
+            <span class="slider">
+              <span class="sun-icon">☀️</span>
+              <span class="moon-icon">🌙</span>
+            </span>
+          </label>
+          <button
+            class="mobile-menu-btn"
           aria-controls="primary-navigation"
           aria-expanded="false"
           aria-label="Open mobile menu"
@@ -114,7 +122,7 @@
           >
             <path d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-        </button>
+        </div>
       </div>
     </header>
 
@@ -122,7 +130,7 @@
       <section id="hero" class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
           <img
-            src="images/IMG-20250227-WA0000@3x.png"
+            src="images/IMG-20250227-WA0000@3x.webp"
             alt="Light of African Child Uganda Branding"
             class="hero-logo"
           />
@@ -158,7 +166,7 @@
         </div>
       </section>
 
-      <section class="donation-banner">
+      <section class="donation-banner reveal-on-scroll">
         <div class="container">
           <h2>Every Child Deserves a Future</h2>
           <p>Your support provides education, shelter, and hope.</p>
@@ -166,7 +174,7 @@
         </div>
       </section>
 
-      <section id="about" class="bg-azure">
+      <section id="about" class="bg-azure reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">About Light of African Child Uganda</h2>
           <div class="section-intro">
@@ -201,9 +209,8 @@
                 </p>
               </div>
               <div class="story-image-box">
-                <img
-                  loading="lazy"
-                  src="images/activity.jpeg"
+                <img loading="lazy"
+                  src="images/activity.webp"
                   alt="Community activity and engagement"
                   class="rounded-img shadow"
                 />
@@ -246,13 +253,7 @@
                     <span class="role">Founder</span>
                     <span class="country"
                       >From Uganda
-                      <img
-                        loading="lazy"
-                        src="https://flagcdn.com/ug.svg"
-                        width="20"
-                        alt="Uganda Flag"
-                        class="flag-icon"
-                    /></span>
+                      <span class="flag-icon" title="Uganda">🇺🇬</span></span>
                   </div>
                 </div>
 
@@ -262,13 +263,7 @@
                     <span class="role">Co founder</span>
                     <span class="country"
                       >From Italy
-                      <img
-                        loading="lazy"
-                        src="https://flagcdn.com/it.svg"
-                        width="20"
-                        alt="Italy Flag"
-                        class="flag-icon"
-                    /></span>
+                      <span class="flag-icon" title="Italy">🇮🇹</span></span>
                   </div>
                 </div>
                 <div class="leader-item info-card">
@@ -277,13 +272,7 @@
                     <span class="role">Advisor / funder</span>
                     <span class="country"
                       >From USA
-                      <img
-                        loading="lazy"
-                        src="https://flagcdn.com/us.svg"
-                        width="20"
-                        alt="USA Flag"
-                        class="flag-icon"
-                    /></span>
+                      <span class="flag-icon" title="USA">🇺🇸</span></span>
                   </div>
                 </div>
                 <div class="leader-item info-card">
@@ -292,13 +281,7 @@
                    <span class="role">Country Coordinator</span>
                    <span class="country"
                      >From Uganda
-                     <img
-                       loading="lazy"
-                        src="https://flagcdn.com/ug.svg"
-                        width="20"
-                        alt="Uganda Flag"
-                        class="flag-icon"
-                   /></span>
+                     <span class="flag-icon" title="Uganda">🇺🇬</span></span>
                  </div>
                </div>
               </div>
@@ -307,7 +290,7 @@
         </div>
       </section>
 
-      <section id="what-we-do" class="bg-white">
+      <section id="what-we-do" class="bg-white reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">What We Do</h2>
           <div class="wwd-grid">
@@ -343,7 +326,7 @@
         </div>
       </section>
 
-      <section id="impact-report" class="bg-light">
+      <section id="impact-report" class="bg-light reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Our Impact</h2>
           <div class="impact-grid">
@@ -367,7 +350,7 @@
         </div>
       </section>
 
-      <section class="bg-azure">
+      <section class="bg-azure reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Voices from Our Community</h2>
           <div class="testimonial info-card">
@@ -380,7 +363,7 @@
         </div>
       </section>
 
-      <section id="transparency" class="bg-light">
+      <section id="transparency" class="bg-light reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Transparency & Reports</h2>
           <div class="transparency-summary text-center">
@@ -420,7 +403,7 @@
         </div>
       </section>
 
-      <section id="partners" class="bg-white">
+      <section id="partners" class="bg-white reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Our Partners</h2>
           <div class="partners-grid">
@@ -432,7 +415,7 @@
         </div>
       </section>
 
-      <section id="sponsor-child" class="bg-azure">
+      <section id="sponsor-child" class="bg-azure reveal-on-scroll">
         <div class="container text-center">
           <h2 class="section-title">Sponsor a Child</h2>
           <p class="max-w-md mx-auto mb-2">
@@ -449,7 +432,7 @@
         </div>
       </section>
 
-      <section id="newsletter" class="bg-light">
+      <section id="newsletter" class="bg-light reveal-on-scroll">
         <div class="container text-center">
           <h2 class="section-title">Stay Updated</h2>
           <p>Receive updates about our projects and impact.</p>
@@ -473,7 +456,7 @@
         </div>
       </section>
 
-      <section id="featured-story" class="bg-white">
+      <section id="featured-story" class="bg-white reveal-on-scroll">
         <div class="container story-flex">
           <div class="story-content">
             <h2 class="text-left">Featured Story: "Jamilah's Journey"</h2>
@@ -483,16 +466,15 @@
               become the heart of our mission.
             </p>
             <div class="video-wrapper shadow">
-              <video controls preload="none">
+              <video controls preload="none" poster="images/jamilah-1.webp">
                 <source src="images/jamilah-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
           <div class="story-image">
-            <img
-              loading="lazy"
-              src="images/jamilah-1.jpeg"
+            <img loading="lazy"
+              src="images/jamilah-1.webp"
               alt="Jamilah participating in skills training"
               class="rounded-img shadow"
             />
@@ -500,15 +482,53 @@
         </div>
       </section>
 
-      <section id="programs" class="bg-azure">
+      <section id="recent-update" class="bg-white reveal-on-scroll">
+        <div class="container">
+          <div class="badge">
+            🇨🇿 Czech Republic 🤝 🇺🇬 Uganda • Special Field Update
+          </div>
+          <div class="story-flex">
+            <div class="story-content">
+              <h2 class="text-left">A Visit from Our Friends from the Czech Republic</h2>
+              <p>
+                Recently, a group of wonderful friends from the Czech Republic paid a special visit to one of our partner schools, <strong>Optimistic Junior School</strong>, located in Kawempe, Migalu Zone, Kampala.
+              </p>
+              <p>
+                They met with students in their classrooms, held a school assembly, spent quality time interacting directly with the children, and presented generous donations to support the school, teachers, and students. Their visit brought immense joy and highlighted the inspiring power of global friendship.
+              </p>
+              <div class="video-wrapper shadow">
+                <video controls preload="none" poster="images/v2-handing-donation-assembly.webp">
+                  <source src="images/VID-20260803-WA0006.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="story-image">
+              <div class="story-image-grid">
+                <img loading="lazy"
+                  src="images/v2-donations-2.webp"
+                  alt="Donation presentation at Optimistic Junior School, Kawempe Migalu Zone"
+                  class="rounded-img shadow"
+                />
+                <img loading="lazy"
+                  src="images/v2-d.webp"
+                  alt="Donation handover at Optimistic Junior School"
+                  class="rounded-img shadow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs" class="bg-azure reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Our Programs</h2>
           <div class="process-grid">
             <article class="process-item" data-program="education">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/our-students.jpg"
+                <img loading="lazy"
+                  src="images/our-students.webp"
                   alt="Community Education"
                 />
               </div>
@@ -523,9 +543,8 @@
             </article>
             <article class="process-item" data-program="shelter">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/shelter-2.jpeg"
+                <img loading="lazy"
+                  src="images/shelter-2.webp"
                   alt="Safe Shelter Project"
                 />
               </div>
@@ -540,9 +559,8 @@
             </article>
             <article class="process-item" data-program="skills">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/skills-project-3.jpeg"
+                <img loading="lazy"
+                  src="images/skills-project-3.webp"
                   alt="Skill Development"
                 />
               </div>
@@ -557,9 +575,8 @@
             </article>
             <article class="process-item" data-program="health">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/ANTID.jpg"
+                <img loading="lazy"
+                  src="images/ANTID.webp"
                   alt="Health Awareness"
                 />
               </div>
@@ -574,9 +591,8 @@
             </article>
             <article class="process-item" data-program="nutrition">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/activity-2.jpeg"
+                <img loading="lazy"
+                  src="images/activity-2.webp"
                   alt="Food & Nutrition"
                 />
               </div>
@@ -591,9 +607,8 @@
             </article>
             <article class="process-item" data-program="talent">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-3.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-3.webp"
                   alt="Talent Development"
                 />
               </div>
@@ -608,9 +623,8 @@
             </article>
             <article class="process-item" data-program="environment">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/activity.jpeg"
+                <img loading="lazy"
+                  src="images/activity.webp"
                   alt="Conservation"
                 />
               </div>
@@ -625,9 +639,8 @@
             </article>
             <article class="process-item" data-program="discrimination">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/reaching-out.jpeg"
+                <img loading="lazy"
+                  src="images/reaching-out.webp"
                   alt="Anti-Discrimination"
                 />
               </div>
@@ -642,9 +655,8 @@
             </article>
             <article class="process-item" data-program="clothing">
               <div class="process-image">
-                <img
-                  loading="lazy"
-                  src="images/handing out clothes.jpeg"
+                <img loading="lazy"
+                  src="images/handing out clothes.webp"
                   alt="Clothing Donations"
                 />
               </div>
@@ -661,7 +673,7 @@
         </div>
       </section>
 
-      <section id="gallery" class="bg-azure section-with-pattern">
+      <section id="gallery" class="bg-azure section-with-pattern reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Gallery & Videos</h2>
 
@@ -669,45 +681,128 @@
             <h3>Our Impact in Action</h3>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/activity-1.jpeg"
+                <img loading="lazy"
+                  src="images/activity-1.webp"
                   alt="Children and community members gathered for an educational session"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/activity-2.jpeg"
+                <img loading="lazy"
+                  src="images/activity-2.webp"
                   alt="Distributing essential school supplies to underprivileged children"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/activity-3.jpeg"
+                <img loading="lazy"
+                  src="images/activity-3.webp"
                   alt="Children participating in organized group educational activities"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/activity-5.jpeg"
+                <img loading="lazy"
+                  src="images/activity-5.webp"
                   alt="Children receiving donated school supplies in Kampala"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/donation.jpeg"
+                <img loading="lazy"
+                  src="images/donation.webp"
                   alt="Organization members receiving donations for the community"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/donation-2.jpeg"
+                <img loading="lazy"
+                  src="images/donation-2.webp"
                   alt="Vulnerable families receiving donation packages"
+                />
+            </div>
+          </div>
+
+          <div class="gallery-category">
+            <h3>Our Friends from the Czech Republic (2026 Visit)</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-addressing-students-in-class-main.webp"
+                  alt="Addressing students in class — Our friends"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-group-photo-with-staff-and-organisation-members.webp"
+                  alt="Group photo with staff & visitors — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-handing-donation-assembly.webp"
+                  alt="Handing over donations — School assembly"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-interaction-with-stiudents.webp"
+                  alt="Interaction with students — Our friends"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-visitor-with-students.webp"
+                  alt="Visitor with students — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-assembly.webp"
+                  alt="School assembly — Interaction with students"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-donations.webp"
+                  alt="Donations handover — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-addressing-students-in-class.webp"
+                  alt="Classroom interaction — Our friends"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-group-photo-with-staff-and-organisation-members-2.webp"
+                  alt="Group photo with organisation members — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-interaction.webp"
+                  alt="Interaction with students — Our friends"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-handing-donation-assembly2.webp"
+                  alt="Assembly donation handover — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-one-of-the-visitors.webp"
+                  alt="One of our visiting friends — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-donations-2.webp"
+                  alt="Donations handover — School visit"
+                />
+              </div>
+              <div class="gallery-item">
+                <img loading="lazy"
+                  src="images/v2-d.webp"
+                  alt="Donation session at Optimistic Junior School — School visit"
                 />
               </div>
             </div>
@@ -717,44 +812,38 @@
             <h3>Community Spirit & Visitors</h3>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/reaching-out.jpeg"
+                <img loading="lazy"
+                  src="images/reaching-out.webp"
                   alt="Community: Reaching out"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/volunteers.jpeg"
+                <img loading="lazy"
+                  src="images/volunteers.webp"
                   alt="Community: Volunteers"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/volunteers-2.jpeg"
+                <img loading="lazy"
+                  src="images/volunteers-2.webp"
                   alt="Community: Team of volunteers"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/volunteer.jpeg"
+                <img loading="lazy"
+                  src="images/volunteer.webp"
                   alt="Community: Dedicated volunteer"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/anna-visit.jpeg"
+                <img loading="lazy"
+                  src="images/anna-visit.webp"
                   alt="Visitors: Community visit"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/donated-by-vicki-kinsel.jpeg"
+                <img loading="lazy"
+                  src="images/donated-by-vicki-kinsel.webp"
                   alt="Visitors: Donated supplies"
                 />
               </div>
@@ -765,44 +854,38 @@
             <h3>Creative Talent</h3>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-3-alt.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-3-alt.webp"
                   alt="Talent: Traditional dance"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-8.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-8.webp"
                   alt="Talent: Performance"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-1.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-1.webp"
                   alt="Talent: Music and dance"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-2.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-2.webp"
                   alt="Talent: Cultural showcase"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-4.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-4.webp"
                   alt="Talent: Youth engagement"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/entertainment-6.jpeg"
+                <img loading="lazy"
+                  src="images/entertainment-6.webp"
                   alt="Talent: Community joy"
                 />
               </div>
@@ -813,44 +896,38 @@
             <h3>Skill Success</h3>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/skills-project.jpeg"
+                <img loading="lazy"
+                  src="images/skills-project.webp"
                   alt="Skills: Project coordination"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/skills-project-6.jpeg"
+                <img loading="lazy"
+                  src="images/skills-project-6.webp"
                   alt="Skills: Workshop"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/jamilah-1.jpeg"
+                <img loading="lazy"
+                  src="images/jamilah-1.webp"
                   alt="Skills: Jamilah at work"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/jamilah-2.jpeg"
+                <img loading="lazy"
+                  src="images/jamilah-2.webp"
                   alt="Skills: Jamilah portrait"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/skills-project-2.jpeg"
+                <img loading="lazy"
+                  src="images/skills-project-2.webp"
                   alt="Skills: Tailoring workshop"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/poultry-project.jpeg"
+                <img loading="lazy"
+                  src="images/poultry-project.webp"
                   alt="Skills: Poultry farming project"
                 />
               </div>
@@ -861,37 +938,32 @@
             <h3>Charity</h3>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/charity 1.jpeg"
+                <img loading="lazy"
+                  src="images/charity 1.webp"
                   alt="Charity: Community support"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/charity 2.jpeg"
+                <img loading="lazy"
+                  src="images/charity 2.webp"
                   alt="Charity: Helping children"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/charity 3.jpeg"
+                <img loading="lazy"
+                  src="images/charity 3.webp"
                   alt="Charity: Distribution"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/handing out clothes.jpeg"
+                <img loading="lazy"
+                  src="images/handing out clothes.webp"
                   alt="Charity: Handing out clothes"
                 />
               </div>
               <div class="gallery-item">
-                <img
-                  loading="lazy"
-                  src="images/CLOTH2.jpg"
+                <img loading="lazy"
+                  src="images/CLOTH2.webp"
                   alt="Charity: Clothing donations"
                 />
               </div>
@@ -903,7 +975,15 @@
             <div class="video-grid">
               <div class="video-item">
                 <div class="video-wrapper shadow">
-                  <video controls preload="none">
+                  <video controls preload="none" poster="images/IMG-20260803-WA0001.webp">
+                    <source src="images/VID-20260803-WA0006.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <p class="video-caption">Community Outreach & Child Support in Action</p>
+              </div>
+              <div class="video-item">
+                <div class="video-wrapper shadow">
+                  <video controls preload="none" poster="images/shelter-2.webp">
                     <source src="images/shelter video.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -911,7 +991,7 @@
               </div>
               <div class="video-item">
                 <div class="video-wrapper shadow">
-                  <video controls preload="none">
+                  <video controls preload="none" poster="images/jamilah-1.webp">
                     <source src="images/jamilah-video.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -921,7 +1001,7 @@
               </div>
               <div class="video-item">
                 <div class="video-wrapper shadow">
-                  <video controls preload="none">
+                  <video controls preload="none" poster="images/skills-project-3.webp">
                     <source src="images/skills-training.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -929,7 +1009,7 @@
               </div>
               <div class="video-item">
                 <div class="video-wrapper shadow">
-                  <video controls preload="none">
+                  <video controls preload="none" poster="images/poultry-project.webp">
                     <source src="images/poultry-project.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -937,7 +1017,7 @@
               </div>
               <div class="video-item">
                 <div class="video-wrapper shadow">
-                  <video controls preload="none">
+                  <video controls preload="none" poster="images/activity-1.webp">
                     <source
                       src="images/food-and-nutrition.mp4"
                       type="video/mp4"
@@ -951,15 +1031,14 @@
         </div>
       </section>
 
-      <section id="participate" class="bg-light">
+      <section id="participate" class="bg-light reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Get Involved</h2>
           <div class="participate-grid">
             <div class="participate-card">
               <div class="participate-card-image">
-                <img
-                  loading="lazy"
-                  src="images/volunteers-2.jpeg"
+                <img loading="lazy"
+                  src="images/volunteers-2.webp"
                   alt="Local volunteers"
                 />
               </div>
@@ -969,9 +1048,8 @@
             </div>
             <div class="participate-card">
               <div class="participate-card-image">
-                <img
-                  loading="lazy"
-                  src="images/donation-2.jpeg"
+                <img loading="lazy"
+                  src="images/donation-2.webp"
                   alt="Monthly Sponsorship"
                 />
               </div>
@@ -981,9 +1059,8 @@
             </div>
             <div class="participate-card">
               <div class="participate-card-image">
-                <img
-                  loading="lazy"
-                  src="images/reaching-out.jpeg"
+                <img loading="lazy"
+                  src="images/reaching-out.webp"
                   alt="Global Advocacy"
                 />
               </div>
@@ -995,7 +1072,7 @@
         </div>
       </section>
 
-      <section id="donate" class="donate-section">
+      <section id="donate" class="donate-section reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Support Our Mission</h2>
           <div class="donation-box">
@@ -1065,7 +1142,7 @@
         </div>
       </section>
 
-      <section id="contact" class="bg-azure">
+      <section id="contact" class="bg-azure reveal-on-scroll">
         <div class="container">
           <h2 class="section-title">Contact Us</h2>
           <div class="contact-wrapper">

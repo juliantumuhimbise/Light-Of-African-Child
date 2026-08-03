@@ -1,5 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
+  console.log("DOM fully loaded and initialized");
+
+  // --- 0. Theme Engine (Light / Dark Mode Sliding Toggle) ---
+  const themeSwitchCheckbox = document.querySelector("#theme-switch-checkbox");
+  const savedTheme = localStorage.getItem("lacu-theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
+  if (themeSwitchCheckbox) {
+    themeSwitchCheckbox.checked = currentTheme === "dark";
+    themeSwitchCheckbox.addEventListener("change", (e) => {
+      const newTheme = e.target.checked ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("lacu-theme", newTheme);
+    });
+  }
 
   // --- 1. Accessible Mobile Menu ---
   const mobileBtn = document.querySelector(".mobile-menu-btn");
@@ -22,7 +39,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 2. Donation Payment Tabs ---
+  // --- 2. Scroll Reveal & Number Counter Animations ---
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+  const counterElements = document.querySelectorAll(".snapshot-number, .impact-number");
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterElements.forEach(el => counterObserver.observe(el));
+
+  function animateCounter(counterEl) {
+    const rawText = counterEl.innerText.trim();
+    const numericMatch = rawText.match(/(\d+)/);
+    if (!numericMatch) return;
+
+    const targetNum = parseInt(numericMatch[0], 10);
+    const suffix = rawText.replace(numericMatch[0], "");
+    const duration = 1600;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic function
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = Math.floor(easeProgress * targetNum);
+
+      counterEl.innerText = `${currentVal}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        counterEl.innerText = rawText;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // --- 3. Donation Payment Tabs ---
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabPanels = document.querySelectorAll(".tab-panel");
 
@@ -47,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- 3. Click to Copy Feature ---
+  // --- 4. Click to Copy Feature ---
   const copyableElements = document.querySelectorAll(".momo-number, .bank-value");
   copyableElements.forEach((el) => {
     el.style.cursor = "pointer";
@@ -68,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- 4. Lightbox Modal (Gallery & Content) ---
+  // --- 5. Lightbox Modal ---
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
@@ -91,17 +163,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", () => {
-      if (lightbox) {
-        lightbox.classList.remove("active");
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    });
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.remove("active");
+      lightbox.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
   }
 
-  // --- 5. Program Detail Modal Content ---
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  // --- 6. Program Detail Modal Content ---
   const programsData = {
     "education": {
       title: "Education Programs",
@@ -232,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- 6. Form Submission Handlers (Netlify AJAX) ---
+  // --- 7. Form Submission Handlers ---
   const handleFormSubmission = (form, messageElement, successMsg) => {
     if (!form) return;
 
@@ -249,43 +323,27 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
           if (messageElement) {
             messageElement.innerText = successMsg;
-            messageElement.classList.remove("hidden");
             messageElement.style.color = "#10b981";
-            messageElement.style.fontWeight = "bold";
-            messageElement.style.marginTop = "1rem";
-            
-            form.reset();
-            
-            // Auto-hide success message after 5 seconds
-            setTimeout(() => {
-              messageElement.classList.add("hidden");
-            }, 5000);
+            messageElement.style.display = "block";
           }
+          form.reset();
         })
         .catch((error) => {
           console.error("Form submission error:", error);
           if (messageElement) {
-            messageElement.innerText = "Sorry, there was an error. Please try again later.";
-            messageElement.classList.remove("hidden");
+            messageElement.innerText = "Submission failed. Please try again.";
             messageElement.style.color = "#ef4444";
+            messageElement.style.display = "block";
           }
         });
     });
   };
 
+  const contactForm = document.querySelector(".contact-form form");
+  const contactMsg = document.querySelector("#contact-message");
+  handleFormSubmission(contactForm, contactMsg, "Thank you! Your message has been sent successfully.");
+
   const newsletterForm = document.querySelector(".newsletter-form");
-  const newsletterMessage = document.getElementById("newsletter-message");
-  handleFormSubmission(newsletterForm, newsletterMessage, "Thank you for subscribing! We'll keep you updated.");
-
-  const contactForm = document.querySelector(".contact-form");
-  const contactMessage = document.getElementById("contact-message");
-  handleFormSubmission(contactForm, contactMessage, "Your message has been sent. Thank you for reaching out!");
-
-  function closeLightbox() {
-    if (lightbox) {
-      lightbox.classList.remove("active");
-      lightbox.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  }
+  const newsletterMsg = document.querySelector("#newsletter-message");
+  handleFormSubmission(newsletterForm, newsletterMsg, "Thank you for subscribing!");
 });
