@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("js-loaded");
   console.log("DOM fully loaded and initialized");
 
   // --- 0. Theme Engine (Light / Dark Mode Sliding Toggle) ---

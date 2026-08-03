@@ -1218,14 +1218,19 @@ input:checked + .slider::before {
   padding: 3.5rem;
 }
 
-/* --- Scroll Reveal Animations --- */
+/* --- Scroll Reveal Animations (Safe Fallback) --- */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal-on-scroll.revealed {
+body.js-loaded .reveal-on-scroll:not(.revealed) {
+  opacity: 0.15;
+  transform: translateY(20px);
+}
+
+body.js-loaded .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
 }
