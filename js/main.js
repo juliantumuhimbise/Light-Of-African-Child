@@ -141,30 +141,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- 5. Lightbox Modal ---
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-  const lightboxClose = document.querySelector(".lightbox-close");
-  
-  const contentImages = document.querySelectorAll("main img:not(.hero-logo):not(.process-image img)");
+  // --- Modal History & Back-Button Integration ---
+  let isModalHistoryPushed = false;
 
-  contentImages.forEach((img) => {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", (e) => {
-      if (lightbox) {
-        e.stopPropagation();
-        lightbox.classList.add("active");
-        lightbox.style.display = "flex";
-        if (lightboxImg) lightboxImg.src = img.src;
-        if (lightboxImg) lightboxImg.alt = img.alt;
-        if (lightboxCaption) lightboxCaption.innerText = img.alt || "Image Detail";
-        document.body.style.overflow = "hidden";
-      }
-    });
+  window.addEventListener("popstate", () => {
+    if (lightbox && lightbox.classList.contains("active")) {
+      closeLightboxInternal();
+    }
+    if (programModal && programModal.classList.contains("active")) {
+      closeProgramModalInternal();
+    }
+    isModalHistoryPushed = false;
   });
 
-  function closeLightbox() {
+  function openModalWithHistory(modalElement) {
+    if (!modalElement) return;
+    modalElement.classList.add("active");
+    modalElement.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
+    if (!isModalHistoryPushed) {
+      history.pushState({ modalOpen: true }, "");
+      isModalHistoryPushed = true;
+    }
+  }
+
+  function closeLightboxInternal() {
     if (lightbox) {
       lightbox.classList.remove("active");
       lightbox.style.display = "none";
@@ -172,8 +174,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function closeLightbox(fromUserAction = true) {
+    closeLightboxInternal();
+    if (fromUserAction && isModalHistoryPushed) {
+      isModalHistoryPushed = false;
+      history.back();
+    }
+  }
+
+  function closeProgramModalInternal() {
+    if (programModal) {
+      programModal.classList.remove("active");
+      programModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  function closeProgramModal(fromUserAction = true) {
+    closeProgramModalInternal();
+    if (fromUserAction && isModalHistoryPushed) {
+      isModalHistoryPushed = false;
+      history.back();
+    }
+  }
+
+  // --- 5. Lightbox Modal ---
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const lightboxClose = document.querySelector(".lightbox-close");
+  
+  const galleryImages = document.querySelectorAll(".gallery-item img, .story-image img, .story-image-grid img");
+
+  galleryImages.forEach((img) => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (lightbox) {
+        if (lightboxImg) lightboxImg.src = img.src;
+        if (lightboxImg) lightboxImg.alt = img.alt;
+        if (lightboxCaption) lightboxCaption.innerText = img.alt || "Image Detail";
+        openModalWithHistory(lightbox);
+      }
+    });
+  });
+
   if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxClose.addEventListener("click", () => closeLightbox(true));
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox(true);
+    });
   }
 
   // --- 6. Program Detail Modal Content ---
@@ -276,34 +329,24 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        programModal.classList.add("active");
-        programModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
+        openModalWithHistory(programModal);
       }
     });
   });
 
-  const closeProgramModal = () => {
-    if (programModal) {
-      programModal.classList.remove("active");
-      programModal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  };
-
-  if (pmClose) pmClose.addEventListener("click", closeProgramModal);
-  if (pmCloseBtn) pmCloseBtn.addEventListener("click", closeProgramModal);
+  if (pmClose) pmClose.addEventListener("click", () => closeProgramModal(true));
+  if (pmCloseBtn) pmCloseBtn.addEventListener("click", () => closeProgramModal(true));
   
   if (programModal) {
     programModal.addEventListener("click", (e) => {
-      if (e.target === programModal) closeProgramModal();
+      if (e.target === programModal) closeProgramModal(true);
     });
   }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      closeLightbox();
-      closeProgramModal();
+      closeLightbox(false);
+      closeProgramModal(false);
     }
   });
 
